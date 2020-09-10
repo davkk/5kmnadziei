@@ -1,82 +1,117 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const isProd = process.env.NODE_ENV === "production";
+const siteConfig = require('./site-config');
+
+const isProd = process.env.NODE_ENV === 'production';
 const token = process.env.SANITY_TOKEN;
 
 module.exports = {
-  siteMetadata: {},
+  siteMetadata: {
+    ...siteConfig,
+  },
   plugins: [
-    "gatsby-plugin-postcss",
+    'gatsby-plugin-polyfill-io',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
       options: {
-        name: "Gatsby-Sanity starter",
-        short_name: "GS",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#777123",
-        display: "standalone",
+        fonts: [
+          {
+            family: 'Montserrat',
+            variants: ['400', '500', '700'],
+            subsets: ['latin-ext'],
+            fontDisplay: 'auto',
+          },
+          {
+            family: 'Source Code Pro',
+            variants: ['900'],
+            fontDisplay: 'auto',
+          },
+        ],
       },
     },
-    "gatsby-plugin-react-helmet-async",
-    "gatsby-plugin-emotion",
-    "gatsby-plugin-polyfill-io",
-    // {
-    //   resolve: "gatsby-source-sanity",
-    //   options: {
-    //     projectId: process.env.SANITY_PROJECT_ID,
-    //     dataset: process.env.NODE_ENV,
-    //     token,
-    //     overlayDrafts: !isProd,
-    //     watchMode: !isProd && token,
-    //   },
-    // },
-    // {
-    //   resolve: "gatsby-plugin-prefetch-google-fonts",
-    //   options: {
-    //     fonts: [],
-    //   },
-    // },
     {
-      resolve: "gatsby-plugin-alias-imports",
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: '5 KM NADZIEI - bieg dla Hospicjum im. Jana Pawła II w Olsztynie',
+        short_name: '5 KM NADZIEI',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#10498A',
+        display: 'standalone',
+        icon: './src/images/icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
-          "@components": "./src/components",
-          "@layouts": "./src/layouts",
-          "@constants": "./src/constants",
-          "@pages": "./src/pages",
-          "@helpers": "./src/helpers",
-          "@queries": "./src/queries",
-          "@styles": "./src/styles",
-          "@images": "./src/images",
+          '@content': './content',
+          '@components': './src/components',
+          '@layouts': './src/layouts',
+          '@constants': './src/constants',
+          '@pages': './src/pages',
+          '@helpers': './src/helpers',
+          '@queries': './src/queries',
+          '@images': './src/images',
         },
       },
     },
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-robots-txt",
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    'gatsby-transformer-json',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-eslint',
     {
-      resolve: "gatsby-plugin-sharp",
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.NODE_ENV,
+        token,
+        overlayDrafts: !isProd,
+        watchMode: !isProd && token,
+      },
+    },
+    {
+      resolve: 'gatsby-source-cloudinary',
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sharp',
       options: {
         useMozJpeg: true,
         stripMetadata: true,
         defaultQuality: 75,
       },
     },
-    "gatsby-transformer-sharp",
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-webpack-size',
+    'gatsby-plugin-emotion',
     {
-      resolve: "gatsby-plugin-netlify",
+      resolve: 'gatsby-plugin-netlify',
       options: {
         allPageHeaders: [
-          "Cookie: SameSite=None; Secure",
-          "X-Frame-Options: DENY",
-          "X-XSS-Protection: 1; mode=block",
-          "cache-control: max-age=31557600, no-cache, no-store, must-revalidate",
+          'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
+          "Content-Security-Policy: default-src data: 'unsafe-inline' 'unsafe-eval' https:; script-src data: 'unsafe-inline' 'unsafe-eval' https: blob:; style-src data: 'unsafe-inline' https:; img-src data: https: blob:; font-src data: https:; connect-src https: wss: blob:; media-src https: blob:; object-src https:; child-src https: data: blob:; form-action https:; block-all-mixed-content",
+          'X-Frame-Options: DENY',
+          'X-Content-Type-Options: nosniff',
+          'Referrer-Policy: no-referrer',
+          "Feature-Policy: microphone 'none'; geolocation 'none'",
         ],
       },
     },
-    "gatsby-plugin-preact",
-    "gatsby-plugin-next-seo",
-    "gatsby-plugin-offline",
-    "gatsby-plugin-webpack-size",
+    'gatsby-plugin-preact',
+    'gatsby-plugin-robots-txt',
   ],
 };

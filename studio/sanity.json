@@ -1,18 +1,19 @@
 {
   "root": true,
-  "project": {
-    "name": "gatsby-sanity-starter"
-  },
   "api": {
-    "projectId": "vggmolmk",
-    "dataset": "development"
+    "dataset": "development",
+    "projectId": "n3lgm9q4"
+  },
+  "project": {
+    "name": "5kmnadziei"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "media"
   ],
   "env": {
     "development": {
@@ -25,6 +26,14 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskConfig.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./assetSources.js"
     }
   ]
 }

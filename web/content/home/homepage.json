@@ -1,0 +1,164 @@
+{
+  "hero": {
+    "date": "2021-04-17T10:00:00.000Z",
+    "message": "Do biegu pozostało:",
+    "cta": "Zobacz plan biegu",
+    "motto": "motto.md"
+  },
+  "signup": "signup.md",
+  "location": "location.md",
+  "schedule": {
+    "heading": "Plan biegu",
+    "plan": [
+      {
+        "time": "10:45",
+        "title": "Bieg dla dzieci",
+        "description": "Z myślą o najmłodszych, przed biegiem głównym odbędzie się bieg dla dzieci (6&#8288;-&#8288;10 lat na 200&nbsp;m, 11&#8288;-&#8288;13 lat na 400&nbsp;m)."
+      },
+      {
+        "time": "11:30",
+        "title": "Oficjalne rozpoczęcie",
+        "description": "Powitanie uczestników i gości przez Panią dyrektor Hospicjum Teresę Kocbach."
+      },
+      {
+        "time": "11:45",
+        "title": "Rozgrzewka",
+        "description": "Nie możemy o niej zapomnieć. Czeka nas nie lada wyzwanie!"
+      },
+      {
+        "time": "12:00",
+        "title": "Bieg główny",
+        "description": "Bieg na dystansie około 5&nbsp;kilometrów. Tutaj nie&nbsp;liczy się kto jest najlepszy, dlatego ścieżkę można pokonać nawet spacerem."
+      },
+      {
+        "time": "13:30",
+        "title": "Koniec biegu",
+        "description": "Nie musisz się spieszyć! Limit czasu przeznaczony na&nbsp;ukończenie biegu to 90&nbsp;minut."
+      }
+    ]
+  },
+  "problem": "problem.md",
+  "solution": "solution.md",
+  "goal": "goal.md",
+  "prizes": "prizes.md",
+  "patronage": {
+    "honor": [
+      {
+        "src": "marszalek",
+        "alt": "Patronat honorowy Marszałka Województwa Warmińsko-Mazurskiego"
+      },
+      {
+        "src": "wojewoda",
+        "alt": "Patronat Honorowy Wojewody Warmińsko-Mazurskiego"
+      },
+      {
+        "src": "prezydent",
+        "alt": "Patronat Honorowy Prezydenta Olsztyna"
+      }
+    ],
+    "media": [
+      {
+        "src": "meloradio",
+        "alt": "Patronat Medialny Meloradio"
+      },
+      {
+        "src": "tvp3oln",
+        "alt": "Patronat Medialny TVP3 Olsztyn",
+        "href": "https://olsztyn.tvp.pl/"
+      }
+    ]
+  },
+  "sponsors": {
+    "heading": "Wspar&shy;cie",
+    "logos": [
+      {
+        "src": "wiener",
+        "alt": "Wiener TU S.A. Vienna Insurance Group"
+      },
+      {
+        "src": "mazda",
+        "alt": "Mazda AUTO IDEA OLSZTYN"
+      },
+      {
+        "src": "wipasz",
+        "alt": "Wipasz SA Olsztyn"
+      },
+      {
+        "src": "jutrzenkadm",
+        "alt": "Jutrzenka Dobre Miasto - zakłady cukiernicze"
+      },
+      {
+        "src": "teknos",
+        "alt": "Teknos"
+      },
+      {
+        "src": "kunczik",
+        "alt": "Lakiernia Kunczik Olsztyn"
+      },
+      {
+        "src": "osir-olsztyn",
+        "alt": "Ośrodek Sportu i Rekreacji w Olsztynie"
+      },
+      {
+        "src": "szemplinski",
+        "alt": "FHU SZEMPLIŃSKI NOWOCZESNE BRAMY I OGRODZENIA"
+      },
+      {
+        "src": "polmlek",
+        "alt": "POLMLEK SP. Z O.O."
+      },
+      {
+        "src": "ceik-olsztyn",
+        "alt": "Centrum Edukacji i Inicjatyw Kulturalnych w Olsztynie"
+      },
+      {
+        "src": "lov-olsztyn",
+        "alt": "V Liceum Ogólnokształcące im. Wspólnej Europy w Olsztynie"
+      },
+      {
+        "src": "osrodek",
+        "alt": "SPECJALNY OŚRODEK SZKOLNO-WYCHOWAWCZY DLA DZIECI NIESŁYSZĄCYCH IM. MARII GRZEGORZEWSKIEJ"
+      },
+      {
+        "src": "sp30-olsztyn",
+        "alt": "Szkoła Podstawowa nr 30 im. Marii Zientary-Malewskiej w Olsztynie"
+      },
+      {
+        "src": "reklamy-w-windach",
+        "alt": "Reklamy W Windach Olsztyn"
+      },
+      {
+        "src": "cymes",
+        "alt": "Piekarnia i Cukiernia Cymes"
+      },
+      {
+        "src": "feni-stowarzyszenie",
+        "alt": "Stowarzyszenie Pomocy Humanitarnej FENI"
+      },
+      {
+        "src": "edpo-olsztyn",
+        "alt": "Ochrona Danych Osobowych, IOD, Olsztyn, warmińsko-mazurskie, Polska"
+      },
+      {
+        "src": "livingroom",
+        "alt": "LIVINGROOM"
+      },
+      {
+        "src": "mcc-medale",
+        "alt": "MCC - MEDALE SPORTOWE I OKOLICZNOŚCIOWE, PINSY, MONETY, ORDERY I BRELOKI NA ZAMÓWIENIE"
+      },
+      {
+        "src": "rambo-park",
+        "alt": "R.AMBO PARK - Studio Treningu Personalnego"
+      },
+      {
+        "src": "artro-klinika-bieniecki",
+        "alt": "Artro-Klinika Bieniecki Olsztyn"
+      }
+    ],
+    "message": {
+      "text": "Chcesz nas wesprzeć?",
+      "cta": "Skontaktuj się z nami"
+    }
+  }
+}

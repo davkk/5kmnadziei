@@ -1,4 +1,6 @@
-/*
-  Import Tailwind's base styles into the browser.
-*/
-import "./src/styles/globals.css"
+exports.onClientEntry = async () => {
+  // IntersectionObserver polyfill for gatsby-image (Safari, IE)
+  if (typeof window.IntersectionObserver === 'undefined') {
+    await import('intersection-observer');
+  }
+};

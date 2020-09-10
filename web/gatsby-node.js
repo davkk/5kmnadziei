@@ -1,8 +1,31 @@
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-  // Hack due to Tailwind ^1.1.0 using `reduce-css-calc` which assumes node
-  // https://github.com/bradlc/babel-plugin-tailwind-components/issues/39#issuecomment-526892633
-  const config = getConfig()
-  config.node = {
-    fs: "empty",
+const path = require('path');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  getConfig,
+  rules,
+  loaders,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      plugins: [
+        new DirectoryNamedWebpackPlugin({
+          exclude: /node_modules/,
+        }),
+      ],
+    },
+  });
+
+  if (stage.startsWith('develop')) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom',
+        },
+      },
+    });
   }
-}
+};

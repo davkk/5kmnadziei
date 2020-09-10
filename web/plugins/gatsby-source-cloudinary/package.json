@@ -1,0 +1,4 @@
+{
+  "name": "gatsby-source-cloudinary",
+  "main": "gatsby-node.js"
+}
