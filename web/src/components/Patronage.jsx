@@ -9,64 +9,69 @@ import {
   Row,
   Column,
   Subheading,
+  Image,
   ImageList,
 } from '@components/shared';
 import { GRAY_BLUE } from '@constants';
 import { MEDIA } from '@helpers';
 
-const Patronage = ({ patronage }) => (
-  <Section
-    css={css`
-      margin-bottom: 0;
-      background: ${GRAY_BLUE};
-      padding: 3.5em 0;
-    `}
-  >
-    <Container>
-      <Row>
-        <Column>
-          <Subheading>Patronat Honorowy</Subheading>
-          <ImageList items={patronage.honor} numInRow={2} />
-        </Column>
-        <Column>
-          <Subheading>Patronat Medialny</Subheading>
-          <ImageList items={patronage.media} numInRow={3} />
-        </Column>
-      </Row>
-      <Subheading
-        css={css`
-          margin-top: 4em;
+const Patronage = ({ patronage }) => {
+  const { community, honorary, media } = patronage;
 
-          ${MEDIA.MIN_SDESKTOP`
-            max-width: 70%;
-            margin-left: auto;
-            margin-right: auto;
+  return (
+    <Section
+      css={css`
+        margin-bottom: 0;
+        background: ${GRAY_BLUE};
+        padding: 4em 0;
+      `}
+    >
+      <Container>
+        <Row>
+          <Column>
+            <Subheading>Patronat Honorowy</Subheading>
+            <ImageList items={honorary} numInRow={2} />
+          </Column>
+          <Column>
+            <Subheading>Patronat Medialny</Subheading>
+            <ImageList items={media} numInRow={3} />
+          </Column>
+        </Row>
+        <Subheading
+          css={css`
+            ${MEDIA.MIN_SDESKTOP`
+              max-width: 70%;
+              margin-left: auto;
+              margin-right: auto;
+            `}
           `}
-        `}
-      >
-        Zadanie publiczne jest współ&shy;finansowane przy&nbsp;współudziale
-        Gminy&nbsp;Olsztyn
-      </Subheading>
-      <ImageList
-        items={[{ src: 'gmina-olsztyn', alt: 'Gmina Olsztyn' }]}
-        numInRow={1}
-      />
-    </Container>
-  </Section>
-);
+          dangerouslySetInnerHTML={{ __html: community.text }}
+        />
+        <Image
+          fluid={community.logo.asset.fluid}
+          alt={community.logo.alt}
+          objectFit="contain"
+          css={css`
+            margin: 1.7em auto 0;
+            min-height: auto;
+            width: 25%;
+            border-radius: 0;
+
+            ${MEDIA.SDESKTOP`
+              width: 45%;
+            `}
+          `}
+        />
+      </Container>
+    </Section>
+  );
+};
 
 Patronage.propTypes = {
   patronage: PropTypes.shape({
-    honor: PropTypes.array.isRequired,
+    honorary: PropTypes.array.isRequired,
     media: PropTypes.array.isRequired,
-    section: PropTypes.shape({
-      childMarkdownRemark: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-          heading: PropTypes.string.isRequired,
-        }).isRequired,
-        html: PropTypes.string.isRequired,
-      }).isRequired,
-    }),
+    community: PropTypes.object.isRequired,
   }).isRequired,
 };
 

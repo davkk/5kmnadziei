@@ -1,13 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const useContactpageQuery = () => {
+const useGoalpageQuery = () => {
   const data = useStaticQuery(graphql`
-    query ContactpageQuery {
-      sanityContactPage {
-        organizers {
-          name
-          _rawInfo
-          logo {
+    query GoalpageQuery {
+      sanityGoalPage {
+        goalEntries {
+          image {
             asset {
               fluid {
                 ...GatsbySanityImageFluid
@@ -15,12 +13,14 @@ const useContactpageQuery = () => {
             }
             alt
           }
+          _rawText
+          title
         }
       }
     }
   `);
 
-  return data.sanityContactPage;
+  return data.sanityGoalPage;
 };
 
-export default useContactpageQuery;
+export default useGoalpageQuery;

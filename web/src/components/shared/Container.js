@@ -9,8 +9,11 @@ const Container = styled.div`
   text-align: ${({ align }) => align || 'center'};
 
   ${MEDIA.MIN_LDESKTOP`
-    max-width: 1380px;
-    width: 1380px;
+    max-width: 1440px;
+    width: 1440px;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
   `}
 `;
 

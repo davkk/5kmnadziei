@@ -1,3 +1,12 @@
+import React from "react";
+import { BsFillBackspaceReverseFill } from "react-icons/bs";
+
+const Nbsp = (props) => (
+  <span style={{ whiteSpace: "nowrap", background: "yellow" }}>
+    {props.children}
+  </span>
+);
+
 export default {
   name: "richText",
   type: "array",
@@ -17,6 +26,14 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+          {
+            title: "NBSP",
+            value: "nbsp",
+            blockEditor: {
+              icon: BsFillBackspaceReverseFill,
+              render: Nbsp,
+            },
+          },
         ],
         // Support annotating text with a reference to an author
         annotations: [],

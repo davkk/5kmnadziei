@@ -12,7 +12,7 @@ import Donate from './Donate';
 import Copyright from './Copyright';
 
 const Footer = () => {
-  const { donate, copyright } = useGlobalsQuery();
+  const { donateMessage, copyright } = useGlobalsQuery();
 
   return (
     <Section
@@ -33,7 +33,7 @@ const Footer = () => {
             <Socials />
           </Column>
           <Column>
-            <Donate donate={donate} />
+            <Donate donate={donateMessage} />
           </Column>
         </Row>
         <Copyright msg={copyright} />

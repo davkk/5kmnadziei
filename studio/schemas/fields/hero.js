@@ -19,11 +19,13 @@ export default {
       name: "cta",
       type: "string",
       title: "CTA",
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: "motto",
-      type: "richText",
-      title: "MOTTO",
+      name: "href",
+      type: "url",
+      title: "HREF",
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

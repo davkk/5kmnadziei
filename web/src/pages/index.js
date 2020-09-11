@@ -6,10 +6,6 @@ import {
   Schedule,
   Location,
   SignUp,
-  Problem,
-  Solution,
-  Goal,
-  Prizes,
   Patronage,
   Sponsors,
 } from '@components';
@@ -17,32 +13,28 @@ import { useHomepageQuery, useSiteMetadataQuery } from '@queries';
 
 const Index = () => {
   const {
+    _rawLocation,
     hero,
-    schedule,
-    location,
-    problem,
-    solution,
-    goal,
-    prizes,
     patronage,
     sponsors,
+    contactUs,
+    schedule,
   } = useHomepageQuery();
 
   const { email } = useSiteMetadataQuery();
 
   return (
     <Layout>
-      <Hero hero={hero} />
+      <Hero hero={hero} isScheduleHidden={schedule.isHidden} />
       <Patronage patronage={patronage} />
-      <Location location={location.childMarkdownRemark.html} />
-      <Schedule schedule={schedule} />
       <SignUp />
-      <Problem problem={problem} />
-      <Solution solution={solution} />
-      <Goal goal={goal} />
-      <SignUp />
-      <Prizes prizes={prizes} />
-      <Sponsors sponsors={sponsors} email={email} />
+      <Sponsors sponsors={sponsors} email={email} contactUs={contactUs} />
+      {!schedule.isHidden && (
+        <>
+          <Location location={_rawLocation} />
+          <Schedule schedule={schedule} />
+        </>
+      )}
     </Layout>
   );
 };

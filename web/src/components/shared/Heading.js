@@ -8,19 +8,13 @@ const Heading = styled.h1`
   text-align: ${({ align }) => align || 'center'};
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 3.5em;
+  font-size: 3em;
   line-height: 1.2;
   letter-spacing: 0.05em;
   word-break: break-word;
   hyphens: auto;
   background: ${DARK_BLUE};
-  background: linear-gradient(
-    to right bottom,
-    ${DARK_BLUE},
-    ${LIGHT_BLUE},
-    ${DARK_BLUE}
-  );
-  background-size: 180% 180%;
+  background: linear-gradient(to right bottom, ${DARK_BLUE}, ${LIGHT_BLUE} 90%);
   background-clip: text;
   text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -28,7 +22,7 @@ const Heading = styled.h1`
 
   ${MEDIA.SDESKTOP`
     text-align: center;
-    font-size: 2.7em;
+    font-size: 2em;
   `}
 `;
 

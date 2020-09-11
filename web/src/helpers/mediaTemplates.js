@@ -1,5 +1,5 @@
 import css from '@emotion/css';
-import BREAKPOINTS from 'constants/breakpoints';
+import BREAKPOINTS from '@constants/breakpoints';
 
 // This creates the media templates, which allows for simple
 // breakpoint usage inside emotion, e.g.:

@@ -6,7 +6,19 @@ import css from '@emotion/css';
 import { Textbox, Cta } from '@components/shared';
 
 const Donate = ({ donate }) => (
-  <div>
+  <div
+    css={css`
+      color: white;
+    `}
+  >
+    <h2
+      css={css`
+        text-transform: uppercase;
+        font-size: 0.7em;
+        margin-bottom: 0.7em !important;
+      `}
+      dangerouslySetInnerHTML={{ __html: donate.title }}
+    />
     <Textbox
       spaceBottom
       css={css`
@@ -17,17 +29,8 @@ const Donate = ({ donate }) => (
           font-weight: 400;
         }
       `}
-    >
-      <h2
-        css={css`
-          text-transform: uppercase;
-          font-size: 0.7em;
-          margin-bottom: 0.7em !important;
-        `}
-        dangerouslySetInnerHTML={{ __html: donate.heading }}
-      />
-      <p dangerouslySetInnerHTML={{ __html: donate.text }} />
-    </Textbox>
+      blocks={donate._rawText}
+    />
     <Cta href={donate.href} target="_BLANK" white>
       {donate.cta}
     </Cta>
@@ -36,8 +39,8 @@ const Donate = ({ donate }) => (
 
 Donate.propTypes = {
   donate: PropTypes.shape({
-    heading: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    _rawText: PropTypes.array.isRequired,
     cta: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
   }),

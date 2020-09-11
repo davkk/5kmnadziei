@@ -22,4 +22,3 @@ export default {
     },
   ],
 };
-// TODO: fill schedule with data

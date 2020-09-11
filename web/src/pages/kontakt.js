@@ -17,9 +17,10 @@ import {
   Image,
 } from '@components/shared';
 import { useContactpageQuery } from '@queries';
+import { MEDIA } from '@helpers';
 
 const Contact = () => {
-  const { contacts } = useContactpageQuery();
+  const { organizers } = useContactpageQuery();
 
   return (
     <Layout
@@ -33,7 +34,7 @@ const Contact = () => {
           `}
         >
           <Heading>Kon&shy;takt</Heading>
-          {contacts.map(contact => (
+          {organizers.map(contact => (
             <Row
               key={shortid.generate()}
               css={css`
@@ -42,14 +43,19 @@ const Contact = () => {
             >
               <Column>
                 <Image
-                  src={contact.childMarkdownRemark.frontmatter.logo}
-                  alt={contact.childMarkdownRemark.frontmatter.name}
-                  width="80%"
+                  fluid={contact.logo.asset.fluid}
+                  alt={contact.logo.alt}
                   objectFit="contain"
                   css={css`
+                    display: inline-block;
+                    width: 80%;
                     min-height: auto;
                     box-shadow: none;
                     border-radius: 0;
+
+                    ${MEDIA.SDESKTOP`
+                      width: 57%;
+                    `}
                   `}
                 />
               </Column>
@@ -57,13 +63,15 @@ const Contact = () => {
                 <Subheading
                   align="left"
                   dangerouslySetInnerHTML={{
-                    __html: contact.childMarkdownRemark.frontmatter.name,
+                    __html: contact.name,
                   }}
                 />
                 <Textbox
-                  dangerouslySetInnerHTML={{
-                    __html: contact.childMarkdownRemark.html,
-                  }}
+                  css={css`
+                    word-break: break-all;
+                    line-height: 1;
+                  `}
+                  blocks={contact._rawInfo}
                 />
               </Column>
             </Row>

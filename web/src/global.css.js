@@ -1,13 +1,9 @@
 import css from '@emotion/css';
-import { GRAY_BLUE, DARK_BLUE, MAIN_FONT } from '@constants';
+import { DARK_BLUE, MAIN_FONT } from '@constants';
 import { MEDIA, resetcss } from '@helpers';
 
 export default css`
   ${resetcss};
-
-  ::selection {
-    background: ${GRAY_BLUE};
-  }
 
   ::-webkit-scrollbar {
     width: 18px !important;
@@ -23,7 +19,7 @@ export default css`
 
   body {
     font-family: ${MAIN_FONT};
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 500;
     background: white;
     color: ${DARK_BLUE};

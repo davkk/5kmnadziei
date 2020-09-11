@@ -1,5 +1,3 @@
-// TODO: fill sponsors with data
-
 export default {
   name: "sponsor",
   title: "SPONSORS",

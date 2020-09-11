@@ -3,19 +3,24 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useGlobalsQuery = () => {
   const data = useStaticQuery(graphql`
     query GlobalsQuery {
-      contentJson {
-        donate {
-          heading
-          text
+      sanityGlobal {
+        copyright
+        signUp {
           cta
           href
+          _rawMessage
         }
-        copyright
+        donateMessage {
+          title
+          cta
+          href
+          _rawText
+        }
       }
     }
   `);
 
-  return data.contentJson;
+  return data.sanityGlobal;
 };
 
 export default useGlobalsQuery;

@@ -42,9 +42,7 @@ const Location = ({ location }) => (
             `}
             spaceBottom
             align="center"
-            dangerouslySetInnerHTML={{
-              __html: location,
-            }}
+            blocks={location}
           />
         </Column>
       </Row>
@@ -53,7 +51,7 @@ const Location = ({ location }) => (
 );
 
 Location.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.array.isRequired,
 };
 
 export default Location;

@@ -4,29 +4,31 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import styled from '@emotion/styled';
+import css from '@emotion/css';
 
 import { Image } from '@components/shared';
-import { LIGHT_BLUE } from '@constants';
 import { MEDIA } from '@helpers';
 
-const ImageList = ({ className, items }) => (
-  <div className={className}>
+const ImageList = ({ className, items, ...props }) => (
+  <div className={className} {...props}>
     {items.map(item => (
-      <figure key={shortid.generate()}>
+      <a
+        key={shortid.generate()}
+        href={item.website ? item.website : undefined}
+        target="_BLANK"
+        rel="noopener noreferrer"
+        css={css`
+          display: block;
+          width: auto;
+        `}
+      >
         <Image
-          src={item.src}
+          fluid={item.logo.asset.fluid}
           alt={item.alt}
-          title={item.alt}
+          title={item.title}
           objectFit="contain"
         />
-        <figcaption>
-          {item.href && (
-            <a href={item.href} target="_BLANK" rel="noopener noreferrer">
-              {item.href}
-            </a>
-          )}
-        </figcaption>
-      </figure>
+      </a>
     ))}
   </div>
 );
@@ -44,26 +46,18 @@ export default styled(ImageList)`
   flex-flow: row wrap;
   margin: 2em 0;
 
-  & figure {
-    position: relative;
+  & a {
     width: ${({ numInRow }) => 100 / numInRow - 4}%;
     margin: 0 2% 2em;
+    transition: transform 150ms ease-in;
+
+    &:hover {
+      transform: scale(1.02);
+    }
 
     ${MEDIA.TABLET`
       width: 46%;
     `}
-
-    & a {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      z-index: 2;
-      display: table;
-      margin: 1em auto;
-      color: ${LIGHT_BLUE};
-      font-size: 0.6em;
-      transform: translateX(-50%);
-    }
   }
 
   & ${Image} {

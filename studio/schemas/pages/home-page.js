@@ -1,5 +1,3 @@
-// TODO: move problem, goal, solution, prizes to another page
-
 export default {
   name: "homePage",
   title: "HOMEPAGE",

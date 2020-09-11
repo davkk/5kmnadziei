@@ -1,86 +1,65 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Scrollchor from 'react-scrollchor';
+// import Scrollchor from 'react-scrollchor';
 
 import css from '@emotion/css';
 
 import { GRAY_BLUE } from '@constants';
 import {
   Section,
-  Row,
-  Column,
   Container,
   Heading,
   Subheading,
   Runner,
   Cta,
+  A,
 } from '@components/shared';
-import { calculateTimeDifference, MEDIA } from '@helpers';
+import { MEDIA } from '@helpers';
+
+const SubLink = A.withComponent('a');
 
 const Hero = ({ hero }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeDifference(hero.date));
-
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      setTimeLeft(calculateTimeDifference(hero.date));
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  });
+  const { message, eventDate, cta, href } = hero;
 
   return (
     <Section>
       <Container>
-        <Subheading
+        <Runner
+          fill={GRAY_BLUE}
           css={css`
-            margin-bottom: 1em;
+            display: inline-block;
+            width: 16%;
+            margin-bottom: -3.8em;
           `}
-        >
-          {hero.message}
-        </Subheading>
+        />
+        <Subheading dangerouslySetInnerHTML={{ __html: message }} />
         <Heading
           css={css`
             font-family: 'Source Code Pro', monospace;
-            margin-bottom: 0.8em;
+            font-size: 4em;
+            margin-bottom: 0.5em;
+            word-break: keep-all;
 
-            ${MEDIA.TABLET`
+            ${MEDIA.SDESKTOP`
+              font-size: 3em;
+            `}
+
+            ${MEDIA.LPHONE`
               font-size: 2em;
             `}
-            ${MEDIA.PHONE`
-              font-size: 1.8em;
-            `}
           `}
         >
-          {timeLeft
-            ? `${timeLeft.days}:${timeLeft.hours}:${timeLeft.mins}:${timeLeft.seconds}`
-            : '00:00:00:00'}
+          {eventDate}
         </Heading>
-        <Subheading>4.04.2020</Subheading>
-        <Scrollchor to="#plan" animate={{ offset: -30, duration: 500 }}>
-          <Cta as="span">{hero.cta}</Cta>
-        </Scrollchor>
-        <Row
-          css={css`
-            margin-top: 4em;
-          `}
-        >
-          <Column alignMiddle>
-            <Runner
-              fill={GRAY_BLUE}
-              css={css`
-                display: block;
-                width: 50%;
-              `}
-            />
-          </Column>
-          <Column alignMiddle>
-            <Subheading
-              dangerouslySetInnerHTML={{
-                __html: hero.motto.childMarkdownRemark.html,
-              }}
-            />
-          </Column>
-        </Row>
+        <Cta href={href} target="_blank" rel="noreferrer noopener">
+          {cta}
+        </Cta>
+        <SubLink href="https://www.facebook.com/5kmnadziei">
+          wszystkie aktualności
+        </SubLink>
+        {/* <Scrollchor to="#plan" animate={{ offset: -30, duration: 500 }}>
+          <Cta as="span">{cta}</Cta>
+        </Scrollchor> */}
       </Container>
     </Section>
   );
@@ -88,14 +67,10 @@ const Hero = ({ hero }) => {
 
 Hero.propTypes = {
   hero: PropTypes.shape({
-    date: PropTypes.string.isRequired,
+    eventDate: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
     cta: PropTypes.string.isRequired,
-    motto: PropTypes.shape({
-      childMarkdownRemark: PropTypes.shape({
-        html: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
+    href: PropTypes.string.isRequired,
   }).isRequired,
 };
 

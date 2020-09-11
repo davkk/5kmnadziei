@@ -14,7 +14,7 @@ const Plan = ({ className, time, title, description, reverse }) => (
     </Column>
     <Column align={reverse ? 'right' : 'left'}>
       <h2>{title}</h2>
-      <Textbox dangerouslySetInnerHTML={{ __html: `<p>${description}</p>` }} />
+      <Textbox blocks={description} />
     </Column>
   </Row>
 );
@@ -57,10 +57,5 @@ export default styled(Plan)`
     font-size: 1.1em;
     margin-bottom: 0.7em;
     text-transform: uppercase;
-  }
-
-  & ${Textbox} p {
-    padding: 0;
-    font-size: 0.9em;
   }
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import css from '@emotion/css';
 
-import { useHomepageQuery } from '@queries';
+import { useGlobalsQuery } from '@queries';
 import {
   Section,
   Container,
@@ -16,11 +16,8 @@ import { BLUE_GRADIENT } from '@constants';
 import { MEDIA } from '@helpers';
 
 const SignUp = () => {
-  const {
-    signup: {
-      childMarkdownRemark: { html, frontmatter },
-    },
-  } = useHomepageQuery();
+  const { signUp } = useGlobalsQuery();
+  const { cta, href, _rawMessage } = signUp;
 
   return (
     <Section background={BLUE_GRADIENT}>
@@ -45,7 +42,6 @@ const SignUp = () => {
             `}
           >
             <Textbox
-              dangerouslySetInnerHTML={{ __html: html }}
               css={css`
                 color: white;
                 font-size: 0.9em;
@@ -54,12 +50,13 @@ const SignUp = () => {
                   color: white;
                 }
               `}
+              blocks={_rawMessage}
             />
-            <Cta href={frontmatter.href} target="_BLANK" white>
-              {frontmatter.cta}
+            <Cta href={href} target="_BLANK" white>
+              {cta}
             </Cta>
           </Column>
-          <Column>
+          <Column alignMiddle>
             <Runner
               css={css`
                 width: 40%;

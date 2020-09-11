@@ -7,47 +7,32 @@ import styled from '@emotion/styled';
 
 import { BORDER_RADIUS, GRAY_BLUE } from '@constants';
 import { MEDIA } from '@helpers';
-import { useCloudinaryQuery } from '@queries';
 
-const Image = ({ className, src, alt, ...props }) => {
-  const images = useCloudinaryQuery();
-
-  const image = images.filter(node => node.public_id.includes(src))[0];
-
-  if (!image) {
-    return null;
-  }
-
-  return (
-    <Img
-      className={className}
-      alt={alt}
-      sizes={{
-        ...image.image.childImageSharp.fluid,
-        aspectRatio: 55 / 34,
-      }}
-      objectFit="cover"
-      objectPosition="50% 50%"
-      {...props}
-    />
-  );
-};
+const Image = ({ className, fluid, alt, ...props }) => (
+  <Img
+    className={className}
+    alt={alt}
+    fluid={fluid}
+    objectFit="cover"
+    objectPosition="50% 50%"
+    {...props}
+  />
+);
 
 Image.propTypes = {
   className: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  fluid: PropTypes.object.isRequired,
   alt: PropTypes.string.isRequired,
 };
 
 export default styled(Image)`
-  display: inline-block;
-  width: ${({ width }) => width || '100%'};
+  display: block;
   min-height: 20em;
+  max-height: 16em;
   border-radius: ${BORDER_RADIUS};
   box-shadow: -20px 20px 0 ${GRAY_BLUE};
 
   ${MEDIA.SDESKTOP`
     min-height: auto;
-    max-height: 15em;
   `}
 `;

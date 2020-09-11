@@ -1,13 +1,14 @@
+import BlockContent from '@sanity/block-content-to-react';
+
 import styled from '@emotion/styled';
 
 import { LIGHT_BLUE } from '@constants';
 
-const Textbox = styled.div`
+const Textbox = styled(BlockContent)`
   p {
     font-size: 1em;
     font-weight: 400;
     padding-bottom: ${({ spaceBottom }) => (spaceBottom ? '2em' : '1em')};
-    word-break: break-word;
 
     & strong {
       font-weight: 500;
@@ -22,12 +23,12 @@ const Textbox = styled.div`
 
   h1 {
     font-size: 1.2em;
-    margin: 1em 0;
+    margin: 1em 0 0.6em;
   }
 
   h2 {
     font-size: 1em;
-    margin: 0.2em 0;
+    margin: 0.6em 0;
     line-height: 1.2;
   }
 
@@ -57,7 +58,6 @@ const Textbox = styled.div`
         content: counter(item) '.';
         font-weight: bold;
         text-indent: -1.7em;
-        float: left;
       }
     }
   }
@@ -74,5 +74,18 @@ const Textbox = styled.div`
     }
   }
 `;
+
+const Nbsp = styled.span`
+  white-space: nowrap;
+`;
+
+Textbox.defaultProps = {
+  renderContainerOnSingleChild: true,
+  serializers: {
+    marks: {
+      nbsp: Nbsp,
+    },
+  },
+};
 
 export default Textbox;
