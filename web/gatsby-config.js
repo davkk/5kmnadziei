@@ -38,7 +38,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#10498A',
         display: 'standalone',
-        icon: './src/images/icon.png',
+        icon: './static/icon.png',
       },
     },
     {
@@ -59,8 +59,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
-    'gatsby-transformer-json',
-    'gatsby-transformer-remark',
     'gatsby-plugin-eslint',
     {
       resolve: 'gatsby-source-sanity',
