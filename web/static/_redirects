@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-https://5kmnadziei.netlify.com/* https://5kmnadziei.pl/:splat 301!
+https://5kmnadziei.netlify.app/* https://5kmnadziei.pl/:splat 301!

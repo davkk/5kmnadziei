@@ -5,6 +5,7 @@
   "main": "package.json",
   "scripts": {
     "dev": "sanity start",
+    "build": "sanity build",
     "test": "sanity check"
   },
   "keywords": [
