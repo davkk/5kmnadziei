@@ -22,7 +22,13 @@ const Hero = ({ hero }) => {
   const { message, eventDate, cta, href } = hero;
 
   return (
-    <Section>
+    <Section
+      css={css`
+        ${MEDIA.SDESKTOP`
+          margin-bottom: 4em;
+        `}
+      `}
+    >
       <Container>
         <Runner
           fill={GRAY_BLUE}
@@ -30,6 +36,18 @@ const Hero = ({ hero }) => {
             display: inline-block;
             width: 16%;
             margin-bottom: -3.8em;
+
+            ${MEDIA.SDESKTOP`
+              margin-bottom: -2em;
+            `}
+
+            ${MEDIA.TABLET`
+              width: 20%;
+            `}
+
+            ${MEDIA.LPHONE`
+              display: none;
+            `}
           `}
         />
         <Subheading dangerouslySetInnerHTML={{ __html: message }} />
