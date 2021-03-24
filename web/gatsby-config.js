@@ -12,21 +12,21 @@ module.exports = {
   plugins: [
     'gatsby-plugin-polyfill-io',
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-webfonts',
       options: {
-        fonts: [
-          {
-            family: 'Montserrat',
-            variants: ['400', '500', '700'],
-            subsets: ['latin-ext'],
-            fontDisplay: 'auto',
-          },
-          {
-            family: 'Source Code Pro',
-            variants: ['900'],
-            fontDisplay: 'auto',
-          },
-        ],
+        fonts: {
+          google: [
+            {
+              family: 'Montserrat',
+              variants: ['400', '500', '700'],
+              subsets: ['latin-ext'],
+            },
+            {
+              family: 'Source Code Pro',
+              variants: ['900'],
+            },
+          ],
+        },
       },
     },
     {
