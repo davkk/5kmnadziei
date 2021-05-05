@@ -12,7 +12,7 @@ import {
   Runner,
   Cta,
 } from '@components/shared';
-import { BLUE_GRADIENT } from '@constants';
+import { PURPLE_GRADIENT } from '@constants';
 import { MEDIA } from '@helpers';
 
 const SignUp = () => {
@@ -20,7 +20,7 @@ const SignUp = () => {
   const { cta, href, _rawMessage } = signUp;
 
   return (
-    <Section background={BLUE_GRADIENT}>
+    <Section background={PURPLE_GRADIENT}>
       <Container
         css={css`
           padding: 3em 0;
@@ -52,7 +52,14 @@ const SignUp = () => {
               `}
               blocks={_rawMessage}
             />
-            <Cta href={href} target="_BLANK" white>
+            <Cta
+              href={href}
+              target="_BLANK"
+              white
+              css={css`
+                color: #8a107e;
+              `}
+            >
               {cta}
             </Cta>
           </Column>
