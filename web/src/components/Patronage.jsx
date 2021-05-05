@@ -12,7 +12,6 @@ import {
   Image,
   ImageList,
 } from '@components/shared';
-import { GRAY_BLUE } from '@constants';
 import { MEDIA } from '@helpers';
 
 const Patronage = ({ patronage }) => {
@@ -21,8 +20,6 @@ const Patronage = ({ patronage }) => {
   return (
     <Section
       css={css`
-        margin-bottom: 0;
-        background: ${GRAY_BLUE};
         padding: 4em 0;
       `}
     >
@@ -39,6 +36,8 @@ const Patronage = ({ patronage }) => {
         </Row>
         <Subheading
           css={css`
+            margin-top: 1.5em;
+
             ${MEDIA.MIN_SDESKTOP`
               max-width: 70%;
               margin-left: auto;
@@ -56,6 +55,7 @@ const Patronage = ({ patronage }) => {
             min-height: auto;
             width: 25%;
             border-radius: 0;
+            box-shadow: none;
 
             ${MEDIA.SDESKTOP`
               width: 45%;

@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <Layout>
       <Hero hero={hero} />
-      <Patronage patronage={patronage} />
       <SignUp />
+      <Patronage patronage={patronage} />
       <Sponsors sponsors={sponsors} email={email} contactUs={contactUs} />
     </Layout>
   );
