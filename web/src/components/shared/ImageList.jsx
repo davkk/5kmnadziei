@@ -24,7 +24,7 @@ const ImageList = ({ className, items, ...props }) => (
       >
         <Image
           fluid={item.logo.asset.fluid}
-          alt={item.alt}
+          alt={item.logo.alt}
           title={item.title}
           objectFit="contain"
         />
@@ -36,6 +36,7 @@ const ImageList = ({ className, items, ...props }) => (
 ImageList.propTypes = {
   className: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
+  numinrow: PropTypes.number.isRequired,
 };
 
 export default styled(ImageList)`
@@ -47,7 +48,7 @@ export default styled(ImageList)`
   margin: 2em 0;
 
   & a {
-    width: ${({ numInRow }) => 100 / numInRow - 4}%;
+    width: ${({ numinrow }) => 100 / numinrow - 4}%;
     margin: 0 2% 2em;
     transition: transform 150ms ease-in;
 

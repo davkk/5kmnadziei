@@ -10,19 +10,9 @@ export default {
       title: "HERO",
     },
     {
-      name: "location",
-      type: "richText",
-      title: "LOCATION",
-    },
-    {
       name: "patronage",
       type: "patronage",
       title: "PATRONAGE",
-    },
-    {
-      name: "schedule",
-      type: "schedule",
-      title: "SCHEDULE",
     },
     {
       name: "sponsors",

@@ -14,7 +14,6 @@ const useHomepageQuery = () => {
           cta
           href
         }
-        _rawLocation
         patronage {
           community {
             logo {
@@ -52,19 +51,6 @@ const useHomepageQuery = () => {
             }
           }
         }
-        schedule {
-          isHidden
-          summary {
-            asset {
-              url
-            }
-          }
-          scheduleEntry {
-            _rawInfo
-            title
-            time(formatString: "HH:mm")
-          }
-        }
         sponsors {
           website
           title
@@ -78,94 +64,6 @@ const useHomepageQuery = () => {
           }
         }
       }
-      # homeJson {
-      #   hero {
-      #     date
-      #     message
-      #     cta
-      #     motto {
-      #       childMarkdownRemark {
-      #         html
-      #       }
-      #     }
-      #   }
-      #   signup {
-      #     childMarkdownRemark {
-      #       html
-      #       frontmatter {
-      #         cta
-      #         href
-      #       }
-      #     }
-      #   }
-      #   location {
-      #     childMarkdownRemark {
-      #       html
-      #     }
-      #   }
-      #   schedule {
-      #     heading
-      #     plan {
-      #       time
-      #       title
-      #       description
-      #     }
-      #   }
-      #   problem {
-      #     childMarkdownRemark {
-      #       frontmatter {
-      #         heading
-      #       }
-      #       html
-      #     }
-      #   }
-      #   solution {
-      #     childMarkdownRemark {
-      #       frontmatter {
-      #         heading
-      #       }
-      #       html
-      #     }
-      #   }
-      #   goal {
-      #     childMarkdownRemark {
-      #       frontmatter {
-      #         heading
-      #       }
-      #       html
-      #     }
-      #   }
-      #   prizes {
-      #     childMarkdownRemark {
-      #       frontmatter {
-      #         heading
-      #       }
-      #       html
-      #     }
-      #   }
-      #   patronage {
-      #     honor {
-      #       src
-      #       alt
-      #     }
-      #     media {
-      #       src
-      #       alt
-      #       href
-      #     }
-      #   }
-      #   sponsors {
-      #     heading
-      #     logos {
-      #       src
-      #       alt
-      #     }
-      #     message {
-      #       text
-      #       cta
-      #     }
-      #   }
-      # }
     }
   `);
 

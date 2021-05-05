@@ -5,18 +5,10 @@ import {
   FaEdit,
   FaHome,
   FaGlobeEurope,
-  FaFlag,
   FaDatabase,
-  FaGavel,
 } from "react-icons/fa";
 
-const FILTER_OUT_LIST = [
-  "global",
-  "contactPage",
-  "homePage",
-  "goalPage",
-  "rulesPage",
-];
+const FILTER_OUT_LIST = ["global", "contactPage", "homePage"];
 
 const filterOutItems = (filterList = []) =>
   S.documentTypeListItems().filter(
@@ -46,25 +38,11 @@ export default () =>
                   S.editor().schemaType("homePage").documentId("homePage")
                 ),
               S.listItem()
-                .title("GOAL")
-                .icon(FaFlag)
-                .id("goalPage")
-                .child(
-                  S.editor().schemaType("goalPage").documentId("goalPage")
-                ),
-              S.listItem()
                 .title("CONTACT")
                 .icon(FaPhoneAlt)
                 .id("contactPage")
                 .child(
                   S.editor().schemaType("contactPage").documentId("contactPage")
-                ),
-              S.listItem()
-                .title("RULES")
-                .icon(FaGavel)
-                .id("rulesPage")
-                .child(
-                  S.editor().schemaType("rulesPage").documentId("rulesPage")
                 ),
             ])
         ),

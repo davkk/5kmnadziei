@@ -30,11 +30,11 @@ const Patronage = ({ patronage }) => {
         <Row>
           <Column>
             <Subheading>Patronat Honorowy</Subheading>
-            <ImageList items={honorary} numInRow={2} />
+            <ImageList items={honorary} numinrow={2} />
           </Column>
           <Column>
             <Subheading>Patronat Medialny</Subheading>
-            <ImageList items={media} numInRow={3} />
+            <ImageList items={media} numinrow={3} />
           </Column>
         </Row>
         <Subheading

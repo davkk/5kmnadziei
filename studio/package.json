@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "sanity start",
     "build": "sanity build",
-    "test": "sanity check"
+    "test": "sanity check",
+    "move": "[ -d dist ] && mv -v dist/static/_redirects dist/ && mv -v dist/static/robots.txt dist/"
   },
   "keywords": [
     "sanity"

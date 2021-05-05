@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FaPhone, FaFlag } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
 
 import styled from '@emotion/styled';
 import css from '@emotion/css';
@@ -26,10 +26,6 @@ const Header = ({ className }) => (
         </Column>
         <Column alignMiddle>
           <Navbar>
-            <Option to="/cel">
-              <FaFlag />
-              Nasz cel
-            </Option>
             <Option to="/kontakt">
               <FaPhone />
               Kontakt

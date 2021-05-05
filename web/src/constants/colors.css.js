@@ -14,3 +14,9 @@ export const BLUE_GRADIENT = css`
   );
   background-size: 180% 180%;
 `;
+
+export const PURPLE_GRADIENT = css`
+  background-color: #8a107e;
+  background-image: linear-gradient(to bottom right, #b110a1, #750e6b, #b110a1);
+  background-size: 180% 180%;
+`;

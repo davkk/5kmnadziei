@@ -97,4 +97,7 @@ module.exports = {
     'gatsby-plugin-preact',
     'gatsby-plugin-robots-txt',
   ],
+  flags: {
+    DEV_SSR: false,
+  },
 };

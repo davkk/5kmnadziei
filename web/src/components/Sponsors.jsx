@@ -16,7 +16,7 @@ const Sponsors = ({ contactUs, sponsors, email }) => (
   <Section>
     <Container>
       <Heading>Wsparcie</Heading>
-      <ImageList items={sponsors} numInRow={7} />
+      <ImageList items={sponsors} numinrow={7} />
       <p
         css={css`
           padding-bottom: 0.7em;
